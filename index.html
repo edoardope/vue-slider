@@ -10,7 +10,7 @@
 
  <body>
     <div id="app">
-        <div class="carosel">
+        <div @mouseover="stopscroll" @mouseleave="autoscorrimento" class="carosel">
             <div class="maincont">
                 <span @click="prev" class="prev">&larr;</span>
                 <div v-for="(element, index) in img" :class=" (activeimg  == index) ? 'active' : '' " class="item">

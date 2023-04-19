@@ -9,9 +9,12 @@ const app = Vue.createApp({
           "asset/img/05.webp",
         ],
         activeimg: 0,
+        intervallo: null,
       }
     },
-  
+    created() {
+      this.autoscorrimento();
+    },
     methods: {
       next() {
         if (this.activeimg == 4) {
@@ -28,7 +31,16 @@ const app = Vue.createApp({
         }
       },
       on(i) {
-        this.activeimg = i
+        this.activeimg = i;
+      },
+      autoscorrimento() {
+        this.intervallo = setInterval(() => {
+          this.next();
+        }, 2000);
+      },
+      stopscroll() {
+        clearInterval(this.intervallo);
+        this.intervallo = null;
       }
     }
   }); 
